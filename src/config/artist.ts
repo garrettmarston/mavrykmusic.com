@@ -113,9 +113,9 @@ export interface ContactConfig extends SectionStyle {
 /** [REQUIRED] Visual theme — colors and fonts */
 export const theme: ThemeConfig = {
   primaryColor: "#ffffff",
-  accentColor: "#e6214f", // or "#b629de",
-  backgroundColor: "#020202",
-  surfaceColor: "#090909",
+  accentColor: "#52b7d2",
+  backgroundColor: "#000000",
+  surfaceColor: "#337486",
   textColor: "#e0e0e0",
 
   fontHeading: "Outfit",
@@ -124,15 +124,15 @@ export const theme: ThemeConfig = {
 
 /** [REQUIRED] Core artist information */
 export const artist: ArtistConfig = {
-  name: "Swirlx",
-  logotype: "/images/Swirlx logotype white.svg",
-  favicon: "/favicon.svg",
+  name: "MAVRYK",
+  logotype: "/images/MAVRYK Logotype.svg",
+  favicon: "/favicon-32x32.png",
   seo: {
-    title: "Swirlx",
-    description: "Official website for DJ & Producer Swirlx. Listen to the latest tracks on Spotify and Apple Music, check tour dates, and more.",
+    title: "MAVRYK",
+    description: "Official website for DJ & Producer MAVRYK. Listen to the latest tracks on Spotify and Apple Music, check tour dates, and more.",
     ogImage: "/images/ogImage.png",
-    keywords: ["Swirlx", "Music", "Artist", "Electronic Music", "EDM", "Melodic Bass", "Future Bass"],
-    siteUrl: "https://swirlxmusic.com",
+    keywords: ["MAVRYK", "Music", "Artist", "Electronic Music", "EDM", "Melodic Bass", "Rocktronic"],
+    siteUrl: "https://mavrykmusic.com",
   },
 };
 
@@ -141,17 +141,17 @@ export const artist: ArtistConfig = {
  * Set a platform to null or remove it to hide its icon.
  */
 export const socials: SocialsConfig = {
-  spotify: "https://open.spotify.com/artist/0aMStIm5O84kBbnZWsukHW",
-  appleMusic: "https://music.apple.com/us/artist/swirlx/1762903367",
-  youtube: "https://www.youtube.com/channel/UCpr_X2AXBeK1uID2B8dWnvg",
-  instagram: "https://www.instagram.com/swirlxmusic",
-  tiktok: "https://www.tiktok.com/@swirlxmusic",
-  twitter: null, // "https://x.com/swirlxmusic/",
+  spotify: null,
+  appleMusic: null,
+  youtube: null,
+  instagram: null,
+  tiktok: null,
+  twitter: null,
   facebook: null,
-  soundcloud: "https://soundcloud.com/swirlx",
-  bandcamp: "https://swirlx.bandcamp.com/",
-  tidal: "https://tidal.com/artist/49679136",
-  linktree: "https://linktr.ee/swirlx",
+  soundcloud: null,
+  bandcamp: null,
+  tidal: null,
+  linktree: "https://linktr.ee/MAVRYKmusic",
 };
 
 /** 
@@ -160,8 +160,8 @@ export const socials: SocialsConfig = {
  */
 export const externalLinks = {
   merch: null as string | null,
-  epk: "/Swirlx EPK.pdf",
-  services: "https://soundbetter.com/profiles/621428-swirlx",
+  epk: null,
+  services: null,
 };
 
 /** 
@@ -169,10 +169,10 @@ export const externalLinks = {
  * Customize the background image and animation 
  */
 export const hero: HeroConfig = {
-  backgroundImage: "/images/Chasing Fire Background.jpg",
-  animationEnabled: true,
+  backgroundImage: "/images/Clouds.jpg",
+  animationEnabled: false,
   particleColor: theme.accentColor, // or use Hex codes like "#6c63ff"
-  navAndSocialColor: null,          // optional: overrides the nav links and social icons color
+  navAndSocialColor: "#ffffff",          // optional: overrides the nav links and social icons color
 };
 
 
@@ -183,11 +183,11 @@ export const latestRelease: LatestReleaseConfig = {
   enabled: true,
   tagline: "OUT NOW",
   releaseType: "Single",
-  title: "Chasing Fire",
-  image: "/images/Chasing Fire.png",
-  imageAlt: "Chasing Fire",
+  title: "Speak Up",
+  image: "/images/Cover Art FINAL.jpeg",
+  imageAlt: "Speak Up",
   streamingLinks: [
-    { label: "Listen Now", url: "https://www.submithub.com/link/swirlx-chasing-fire" },
+    { label: "Listen Now", url: "https://open.spotify.com/track/2yGAIumtCIbs6iwtoF9Tm2?si=376c758f7e2349fd" },
   ],
 
   backgroundColorOverride: null,
@@ -197,7 +197,7 @@ export const latestRelease: LatestReleaseConfig = {
 /** [OPTIONAL] Spotify top tracks embed */
 export const topTracks: TopTracksConfig = {
   enabled: true,
-  spotifyEmbedUrl: "https://open.spotify.com/embed/artist/0aMStIm5O84kBbnZWsukHW?utm_source=generator&theme=0",
+  spotifyEmbedUrl: "https://open.spotify.com/embed/artist/0HrB1iVfMvUdmp2rC9OSMj?utm_source=generator&theme=0",
 
   backgroundColorOverride: null,
   backgroundImage: null,
@@ -205,7 +205,7 @@ export const topTracks: TopTracksConfig = {
 
 /** [OPTIONAL] Tour dates via Bandsintown widget */
 export const tourDates: TourDatesConfig = {
-  enabled: true,
+  enabled: false,
   bandsintown: {
     artistName: "id_15606169", // Artist ID can be found in the Bandsintown URL. Example: https://www.bandsintown.com/a/15606169
   },
@@ -227,10 +227,9 @@ export const newsletter: NewsletterConfig = {
 /** [REQUIRED] About section */
 export const about: AboutConfig = {
   heading: "About",
-  bio: "<p>Arjun Vellanki, who goes by the stage name Swirlx, is a Washington, D.C. based musician, DJ, and producer who was raised in India and has pursued music throughout his life. From playing piano at a young age to learning how to produce electronic music in 2019, his journey has always been rooted in emotion and connection.</p>" + 
-       "<p>Now emerging as an upcoming artist, Swirlx is driven by a passion to create music that speaks to the heart, writing tracks that allow listeners to get lost in their emotions and feel understood. Fusing melodic bass with melodies that are both beautiful and aching, Swirlx crafts songs for those navigating the highs and lows of life, offering a place to escape, reflect, and heal. <3</p>",
-  image: "/images/Swirlx.png",
-  imageAlt: "Swirlx",
+  bio: "<p>MAVRYK is an American producer specializing in a high-octane hybrid of euphoric Melodic Bass and nostalgic Rocktronic. Influenced by artists like Illenium, William Black, Roy Knox, and Sadbois, MAVRYK’s sound aims to blend intimate and emotional verses that build into heavy and euphoric drops.</p>",
+  image: "/images/Avatar2.PNG",
+  imageAlt: "MAVRYK",
 
   backgroundColorOverride: null,
   backgroundImage: null,
@@ -240,8 +239,7 @@ export const about: AboutConfig = {
 export const contact: ContactConfig = {
   heading: "Contact",
   entries: [
-    { label: "General Inquiries", email: "swirlxmusic@gmail.com" },
-    { label: "Booking", email: "booking@swirlxmusic.com" },
+    { label: "General Inquiries", email: "MAVRYKofficial@outlook.com" },
   ],
 
   backgroundColorOverride: null,
