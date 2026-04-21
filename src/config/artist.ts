@@ -113,9 +113,9 @@ export interface ContactConfig extends SectionStyle {
 /** [REQUIRED] Visual theme — colors and fonts */
 export const theme: ThemeConfig = {
   primaryColor: "#ffffff",
-  accentColor: "#52b7d2",
-  backgroundColor: "#000000",
-  surfaceColor: "#337486",
+  accentColor: "#112545",
+  backgroundColor: "#4596ce",
+  surfaceColor: "#112545",
   textColor: "#e0e0e0",
 
   fontHeading: "Outfit",
@@ -126,10 +126,10 @@ export const theme: ThemeConfig = {
 export const artist: ArtistConfig = {
   name: "MAVRYK",
   logotype: "/images/MAVRYK Logotype.svg",
-  favicon: "/favicon-32x32.png",
+  favicon: "/favicon-96x96.png",
   seo: {
     title: "MAVRYK",
-    description: "Official website for DJ & Producer MAVRYK. Listen to the latest tracks on Spotify and Apple Music, check tour dates, and more.",
+    description: "Official website for DJ, Artist, & Producer MAVRYK. Listen to the latest tracks now on all Streaming Platforms, keep updated via Socials, contact, and more.",
     ogImage: "/images/ogImage.png",
     keywords: ["MAVRYK", "Music", "Artist", "Electronic Music", "EDM", "Melodic Bass", "Rocktronic"],
     siteUrl: "https://mavrykmusic.com",
@@ -141,14 +141,14 @@ export const artist: ArtistConfig = {
  * Set a platform to null or remove it to hide its icon.
  */
 export const socials: SocialsConfig = {
-  spotify: null,
-  appleMusic: null,
-  youtube: null,
-  instagram: null,
-  tiktok: null,
+  spotify: "https://open.spotify.com/artist/0HrB1iVfMvUdmp2rC9OSMj?si=Fm4M2GYIQXyy-J_D7_cOrQ",
+  appleMusic: "https://music.apple.com/us/artist/mavryk/1855173636",
+  youtube: "https://www.youtube.com/@mavrykofficial",
+  instagram: "https://www.instagram.com/mavrykmusic",
+  tiktok: "https://www.tiktok.com/@mavrykmusic",
   twitter: null,
   facebook: null,
-  soundcloud: null,
+  soundcloud: "https://soundcloud.com/mavrykofficial",
   bandcamp: null,
   tidal: null,
   linktree: "https://linktr.ee/MAVRYKmusic",
@@ -170,8 +170,8 @@ export const externalLinks = {
  */
 export const hero: HeroConfig = {
   backgroundImage: "/images/Clouds.jpg",
-  animationEnabled: false,
-  particleColor: theme.accentColor, // or use Hex codes like "#6c63ff"
+  animationEnabled: true,
+  particleColor: "#ffffff",
   navAndSocialColor: "#ffffff",          // optional: overrides the nav links and social icons color
 };
 
