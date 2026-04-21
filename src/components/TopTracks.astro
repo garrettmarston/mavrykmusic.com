@@ -1,5 +1,5 @@
 ---
-import { topTracks } from "../config/artist";
+import { topTracks, soundCloud } from "../config/artist";
 import { getSectionStyles } from "../utils/sectionStyle";
 
 interface Props { defaultBg: string; }
@@ -24,6 +24,21 @@ const { style: sectionStyle } = getSectionStyles(topTracks, defaultBg);
         title="Spotify top tracks"
       ></iframe>
     </div>
+
+    {soundCloud.enabled &&
+      <div class="tracks__embed" style="margin-top: 16px;">
+        <iframe
+          src={soundCloud.embedUrl}
+          width="100%"
+          height="166"
+          scrolling="no"
+          allow="autoplay"
+          style="border-radius: 12px; border: 0;"
+          title="SoundCloud track"
+        ></iframe>
+      </div>
+    }
+
   </div>
 </section>
 

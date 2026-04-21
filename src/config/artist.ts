@@ -113,7 +113,7 @@ export interface ContactConfig extends SectionStyle {
 /** [REQUIRED] Visual theme — colors and fonts */
 export const theme: ThemeConfig = {
   primaryColor: "#ffffff",
-  accentColor: "#112545",
+  accentColor: "#ffffff",
   backgroundColor: "#4596ce",
   surfaceColor: "#112545",
   textColor: "#e0e0e0",
@@ -198,9 +198,14 @@ export const latestRelease: LatestReleaseConfig = {
 export const topTracks: TopTracksConfig = {
   enabled: true,
   spotifyEmbedUrl: "https://open.spotify.com/embed/artist/0HrB1iVfMvUdmp2rC9OSMj?utm_source=generator&theme=0",
-
   backgroundColorOverride: null,
   backgroundImage: null,
+};
+
+/** [OPTIONAL] SoundCloud embed */
+export const soundCloud = {
+  enabled: true,
+  embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2293133879&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
 };
 
 /** [OPTIONAL] Tour dates via Bandsintown widget */
