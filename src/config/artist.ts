@@ -205,7 +205,7 @@ export const topTracks: TopTracksConfig = {
 /** [OPTIONAL] SoundCloud embed */
 export const soundCloud = {
   enabled: true,
-  embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2293133879&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+  embedUrl: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mavrykofficial/sevenlionsfree&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
 };
 
 /** [OPTIONAL] Tour dates via Bandsintown widget */
