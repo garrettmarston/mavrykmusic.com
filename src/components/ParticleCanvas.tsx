@@ -18,10 +18,9 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Network configuration settings
-    const PARTICLE_COUNT = 75;      // Balanced count prevents the screen from looking cluttered
-    const CONNECTION_DIST = 110;    // Maximum distance (in pixels) where a line will snap together
-    const BASE_SPEED = 0.4;         // Soft, atmospheric movement speed
+    const PARTICLE_COUNT = 75;      
+    const CONNECTION_DIST = 110;    
+    const BASE_SPEED = 0.4;         
 
     interface Particle {
       x: number;
@@ -29,67 +28,58 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
       vx: number;
       vy: number;
       radius: number;
-      hue: number;
     }
 
     const particles: Particle[] = [];
 
-    // Spawn network points randomly across the screen space
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * BASE_SPEED,
         vy: (Math.random() - 0.5) * BASE_SPEED,
-        radius: Math.random() * 1.5 + 1, // Tiny clean dots
-        hue: 195 + Math.random() * 30,    // Sleek cyber cyans and ice blues
+        radius: Math.random() * 1.75 + 1.25, // 📐 Slightly larger nodes for high visibility
       });
     }
 
     function draw() {
       if (!ctx || !canvas) return;
 
-      // Keep your cloud background completely transparent and crisp
       ctx.clearRect(0, 0, width, height);
       
-      // Use clean additive lighting for the network joints
+      // Hardware-accelerated additive blending makes overlapping white lines turn ultra-bright
       ctx.globalCompositeOperation = "lighter";
 
-      // Update positions and draw individual nodes
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const p = particles[i];
 
         p.x += p.vx;
         p.y += p.vy;
 
-        // Perfect bounce boundaries so points never drift off screen
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Render the point node
+        // Render the point node as crisp, bright white
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue}, 90%, 75%, 0.6)`;
+        ctx.fillStyle = "rgba(255, 255, 255, 0.95)"; // 🔥 Solid bright white nodes
         ctx.fill();
 
-        // NESTED DISTANCE CHECK: Calculate space between this point and every other point
         for (let j = i + 1; j < PARTICLE_COUNT; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          // If they are close enough, weave a connecting web strand
           if (dist < CONNECTION_DIST) {
-            // Fade the line opacity out smoothly as nodes drift further apart
-            const alpha = (1 - dist / CONNECTION_DIST) * 0.25;
+            // Increased the baseline transparency scale so the web lines stay very clear
+            const alpha = (1 - dist / CONNECTION_DIST) * 0.45;
 
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            // Uses a gradient blending shade between the two nodes
-            ctx.strokeStyle = `hsla(${p.hue}, 85%, 70%, ${alpha})`;
-            ctx.lineWidth = 0.75;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`; // 🔥 Solid bright white lines
+            ctx.lineWidth = 1.0; // Slightly thicker lines for visibility
             ctx.stroke();
           }
         }
@@ -104,7 +94,6 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
       
-      // Re-map out-of-bounds nodes on screen resize
       particles.forEach((p) => {
         if (p.x > width) p.x = Math.random() * width;
         if (p.y > height) p.y = Math.random() * height;
