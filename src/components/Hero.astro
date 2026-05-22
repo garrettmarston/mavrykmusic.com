@@ -168,8 +168,14 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
 
   /* 🔥 Custom Social Icon Sizing & Color Overrides */
   .hero__bottom :global(.social-icons a) {
-    color: #ffffff !important;
+    color: #436592 !important;
     transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+    
+    /* Forces the browser to render vector edges as cleanly and crisply as possible */
+    shape-rendering: crispEdges;
+    vector-effect: non-scaling-stroke;
+    /* Adds a tiny clean edge contrast separation against the bright clouds */
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.15));
   }
 
   .hero__bottom :global(.social-icons a:hover) {
