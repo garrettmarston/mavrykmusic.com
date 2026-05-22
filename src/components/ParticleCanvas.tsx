@@ -18,30 +18,31 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Track center position dynamically for resizing
     let centerX = width / 2;
     let centerY = height / 2;
 
-    // Star configuration parameters
-    const STAR_COUNT = 180; 
-    const SPEED = 2.5;       // Speed of warp movement
+    // 🔥 Tweak these parameters to dial in the look
+    const STAR_COUNT = 150;  // Slightly fewer stars makes individual long streaks more distinct
+    const SPEED = 4.5;        // Faster speed creates longer, more dramatic warp streaks
 
     interface Star {
       x: number;
       y: number;
       z: number;
       prevZ: number;
+      hue: number;           // Individual star color trait
     }
 
     const stars: Star[] = [];
 
-    // Initialize stars with random positions
     function initStar(star: Partial<Star> = {}): Star {
       return {
         x: (Math.random() - 0.5) * width,
         y: (Math.random() - 0.5) * height,
         z: Math.random() * width,
         prevZ: 0,
+        // 🔥 Gives every star a shifting hue cycle (spanning deep blues, cyans, and white-hot tints)
+        hue: 190 + Math.random() * 40, 
         ...star,
       };
     }
@@ -50,54 +51,62 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
       stars.push(initStar());
     }
 
-    // Main animation loops
     function draw() {
       if (!ctx || !canvas) return;
 
-      // Clear the canvas with absolute transparency every frame
-      ctx.clearRect(0, 0, width, height);
+      // 🌟 MAGIC BLUR EFFECT: Instead of clearing the canvas instantly, we draw an ultra-faint
+      // semi-transparent black layer. This causes moving items to leave a beautiful glowing trail.
+      ctx.fillStyle = "rgba(17, 37, 69, 0.08)"; // Uses your exact dark brand blue background color code
+      ctx.fillRect(0, 0, width, height);
+
+      // Turn on native hardware-accelerated overlay glow blending
+      ctx.globalCompositeOperation = "lighter";
 
       for (let i = 0; i < STAR_COUNT; i++) {
         const star = stars[i];
 
-        // Save current Z position to draw the trailing streak
         star.prevZ = star.z;
-        // Move the star closer to the screen layer
         star.z -= SPEED;
 
-        // Reset the star to the background plane if it flies off-screen
         if (star.z <= 0) {
           stars[i] = initStar({ z: width });
           continue;
         }
 
-        // Calculate 3D perspective projection coordinates ($X_p = \frac{X \cdot \text{scale}}{Z}$)
         const sx = (star.x / star.z) * (width * 0.6) + centerX;
         const sy = (star.y / star.z) * (width * 0.6) + centerY;
 
-        // Calculate tail streak project point based on previous frame depth
         const px = (star.x / star.prevZ) * (width * 0.6) + centerX;
         const py = (star.y / star.prevZ) * (width * 0.6) + centerY;
 
-        // Fade star brightness out dynamically if it's way back in the depth distance
+        // Don't render stars that fall outside the screen boundary line
+        if (sx < 0 || sx > width || sy < 0 || sy > height) {
+          continue;
+        }
+
         const alpha = Math.min(1 - star.z / width, 1);
 
-        // Render the star as a clean line streak pointing outward from dead-center
         ctx.beginPath();
         ctx.moveTo(px, py);
         ctx.lineTo(sx, sy);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = Math.max(0.5, (1 - star.z / width) * 2.5); // Thicker line as it gets closer
-        ctx.globalAlpha = alpha;
+
+        // 🔥 BEAUTIFUL GRADIENT COLORING: Makes the stars burn white-hot in the center
+        // and fade out into glowing neon cyber blue/cyan wings as they pass the viewer
+        ctx.strokeStyle = `hsla(${star.hue}, 95%, ${Math.min(50 + alpha * 50, 100)}%, ${alpha})`;
+        
+        // 📐 THICKER TRAILS: Makes the star elements punch through and look much more distinct
+        ctx.lineWidth = Math.max(0.75, (1 - star.z / width) * 3.5); 
         ctx.lineCap = "round";
         ctx.stroke();
       }
 
-      ctx.globalAlpha = 1.0; // Reset canvas global transparency states
+      // Reset blending mode back to standard layout rendering
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 1.0;
+      
       animationFrameId = requestAnimationFrame(draw);
     }
 
-    // Handles viewport display shifts cleanly
     function handleResize() {
       if (!canvas) return;
       width = canvas.width = window.innerWidth;
@@ -109,7 +118,6 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
     window.addEventListener("resize", handleResize);
     draw();
 
-    // Clean up animation loops when components unmount
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
