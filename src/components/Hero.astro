@@ -28,7 +28,7 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
   </div>
 
   <div class="hero__bottom">
-    <SocialIcons size={20} iconColor={hero.navAndSocialColor} />
+    <SocialIcons size={28} iconColor={hero.navAndSocialColor} />
   </div>
 </section>
 
@@ -164,6 +164,18 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
 
   .hero__bottom :global(.social-icons) {
     gap: clamp(0.65rem, 3vw, 1.25rem);
+  }
+
+  /* 🔥 Custom Social Icon Sizing & Color Overrides */
+  .hero__bottom :global(.social-icons a) {
+    color: #436592 !important;
+    transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .hero__bottom :global(.social-icons a:hover) {
+    transform: scale(1.15);
+    opacity: 1;
+    color: var(--color-accent, #ffffff) !important;
   }
 
   @media (max-width: 640px) {
