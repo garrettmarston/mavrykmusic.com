@@ -25,7 +25,7 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
       <h1 class="hero__title">{artist.name}</h1>
     )}
     
-    <a href="#top-tracks" class="hero__cta-btn">Music</a>
+    <a href="#top-tracks" class="hero__music-link">MUSIC</a>
 
     <NavLinks class="hero__nav" linkColor={hero.navAndSocialColor} />
   </div>
@@ -122,28 +122,29 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
     will-change: opacity;
   }
 
-  /* 🔥 Custom Button Styling */
-  .hero__cta-btn {
-    display: inline-block;
-    padding: 0.6rem 2.2rem;
-    border: 2px solid var(--color-primary, #ffffff);
-    border-radius: 30px;
-    color: var(--color-primary, #ffffff);
+  /* 🔥 Seamless Matching Text Style */
+  .hero__music-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0em 0.6em;
     font-family: var(--font-heading);
-    font-size: clamp(0.75rem, 2vw, 0.95rem);
-    font-weight: 600;
+    font-size: clamp(0.55rem, 2.1vw + 0.35rem, 0.8rem);
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: clamp(0.1em, 0.5vw + 0.1em, 0.2em);
+    color: var(--nav-link-color, var(--color-primary));
+    opacity: 0.85;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
     margin-top: 0.5rem;
+    margin-bottom: -0.5rem;
   }
 
-  .hero__cta-btn:hover {
-    background-color: var(--color-primary, #ffffff);
-    color: var(--color-bg, #112545);
+  .hero__music-link:hover {
+    opacity: 1;
+    color: var(--color-accent, #ffffff);
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
   }
 
   /* Inset nav from viewport edges on narrow screens when many links wrap */
