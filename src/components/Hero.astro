@@ -9,7 +9,6 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
 ---
 
 <section class="hero" id="home">
-  <!-- Background layers (fixed) — image and animation can coexist -->
   {hasImage && (
     <div class="hero__bg hero__bg--image" style={`background-image: url('${hero.backgroundImage}')`} aria-hidden="true" />
   )}
@@ -19,17 +18,18 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
     </div>
   )}
 
-  <!-- Fixed center content: logotype + nav -->
   <div class="hero__center" id="hero-center">
     {hasLogotype ? (
       <img src={artist.logotype!} alt={`${artist.name} logo`} class="hero__logotype" width="400" height="120" />
     ) : (
       <h1 class="hero__title">{artist.name}</h1>
     )}
+    
+    <a href="#top-tracks" class="hero__cta-btn">Music</a>
+
     <NavLinks class="hero__nav" linkColor={hero.navAndSocialColor} />
   </div>
 
-  <!-- Bottom row: social icons (scrolls with page) -->
   <div class="hero__bottom">
     <SocialIcons size={20} iconColor={hero.navAndSocialColor} />
   </div>
@@ -75,7 +75,7 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
   .hero {
     position: relative;
     /* 100vh is often taller than the visible area on mobile (URL bar), hiding bottom content.
-       svh/dvh match the actual viewport better. */
+        svh/dvh match the actual viewport better. */
     height: 100svh;
     display: flex;
     flex-direction: column;
@@ -120,6 +120,30 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
     visibility: hidden;
     pointer-events: none;
     will-change: opacity;
+  }
+
+  /* 🔥 Custom Button Styling */
+  .hero__cta-btn {
+    display: inline-block;
+    padding: 0.6rem 2.2rem;
+    border: 2px solid var(--color-primary, #ffffff);
+    border-radius: 30px;
+    color: var(--color-primary, #ffffff);
+    font-family: var(--font-heading);
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+  }
+
+  .hero__cta-btn:hover {
+    background-color: var(--color-primary, #ffffff);
+    color: var(--color-bg, #112545);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
   }
 
   /* Inset nav from viewport edges on narrow screens when many links wrap */
