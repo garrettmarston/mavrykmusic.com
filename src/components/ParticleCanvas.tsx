@@ -21,16 +21,15 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
     let centerX = width / 2;
     let centerY = height / 2;
 
-    // 🔥 Tweak these parameters to dial in the look
-    const STAR_COUNT = 150;  // Slightly fewer stars makes individual long streaks more distinct
-    const SPEED = 4.5;        // Faster speed creates longer, more dramatic warp streaks
+    const STAR_COUNT = 150;  
+    const SPEED = 4.5;       
 
     interface Star {
       x: number;
       y: number;
       z: number;
       prevZ: number;
-      hue: number;           // Individual star color trait
+      hue: number;           
     }
 
     const stars: Star[] = [];
@@ -41,8 +40,7 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
         y: (Math.random() - 0.5) * height,
         z: Math.random() * width,
         prevZ: 0,
-        // 🔥 Gives every star a shifting hue cycle (spanning deep blues, cyans, and white-hot tints)
-        hue: 190 + Math.random() * 40, 
+        hue: 195 + Math.random() * 35, // Shifting neon ice blues & cyans
         ...star,
       };
     }
@@ -54,17 +52,16 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
     function draw() {
       if (!ctx || !canvas) return;
 
-      // 🌟 MAGIC BLUR EFFECT: Instead of clearing the canvas instantly, we draw an ultra-faint
-      // semi-transparent black layer. This causes moving items to leave a beautiful glowing trail.
-      ctx.fillStyle = "rgba(17, 37, 69, 0.08)"; // Uses your exact dark brand blue background color code
-      ctx.fillRect(0, 0, width, height);
+      // 🔥 FIXED: Clear only the canvas transparent pixels, keeping the background image completely intact
+      ctx.clearRect(0, 0, width, height);
 
-      // Turn on native hardware-accelerated overlay glow blending
+      // Turn on overlay glow blending so stars light up beautifully
       ctx.globalCompositeOperation = "lighter";
 
       for (let i = 0; i < STAR_COUNT; i++) {
         const star = stars[i];
 
+        // Save last positions to calculate the length of the warp line
         star.prevZ = star.z;
         star.z -= SPEED;
 
@@ -76,10 +73,12 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
         const sx = (star.x / star.z) * (width * 0.6) + centerX;
         const sy = (star.y / star.z) * (width * 0.6) + centerY;
 
-        const px = (star.x / star.prevZ) * (width * 0.6) + centerX;
-        const py = (star.y / star.prevZ) * (width * 0.6) + centerY;
+        // 🔥 THE TAIL FIX: By scaling the previous Z calculation backwards, the line naturally 
+        // stretches into a permanent motion trail without needing to paint a background box over your image!
+        const trailStretch = star.prevZ + (SPEED * 2.5);
+        const px = (star.x / trailStretch) * (width * 0.6) + centerX;
+        const py = (star.y / trailStretch) * (width * 0.6) + centerY;
 
-        // Don't render stars that fall outside the screen boundary line
         if (sx < 0 || sx > width || sy < 0 || sy > height) {
           continue;
         }
@@ -90,20 +89,14 @@ export default function ParticleCanvas({ color = "#ffffff" }: ParticleCanvasProp
         ctx.moveTo(px, py);
         ctx.lineTo(sx, sy);
 
-        // 🔥 BEAUTIFUL GRADIENT COLORING: Makes the stars burn white-hot in the center
-        // and fade out into glowing neon cyber blue/cyan wings as they pass the viewer
-        ctx.strokeStyle = `hsla(${star.hue}, 95%, ${Math.min(50 + alpha * 50, 100)}%, ${alpha})`;
-        
-        // 📐 THICKER TRAILS: Makes the star elements punch through and look much more distinct
+        // Vibrant neon glow colors
+        ctx.strokeStyle = `hsla(${star.hue}, 95%, ${Math.min(50 + alpha * 50, 100)}%, ${alpha * 0.8})`;
         ctx.lineWidth = Math.max(0.75, (1 - star.z / width) * 3.5); 
         ctx.lineCap = "round";
         ctx.stroke();
       }
 
-      // Reset blending mode back to standard layout rendering
       ctx.globalCompositeOperation = "source-over";
-      ctx.globalAlpha = 1.0;
-      
       animationFrameId = requestAnimationFrame(draw);
     }
 
