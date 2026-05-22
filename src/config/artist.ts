@@ -172,7 +172,7 @@ export const hero: HeroConfig = {
   backgroundImage: "/images/Clouds.jpg",
   animationEnabled: true,
   particleColor: "#ffffff",
-  navAndSocialColor: "#000000",          // optional: overrides the nav links and social icons color
+  navAndSocialColor: "#ffffff",          // optional: overrides the nav links and social icons color
 };
 
 
