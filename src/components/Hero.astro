@@ -9,6 +9,7 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
 ---
 
 <section class="hero" id="home">
+  <!-- Background layers (fixed) — image and animation can coexist -->
   {hasImage && (
     <div class="hero__bg hero__bg--image" style={`background-image: url('${hero.backgroundImage}')`} aria-hidden="true" />
   )}
@@ -18,18 +19,17 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
     </div>
   )}
 
+  <!-- Fixed center content: logotype + nav -->
   <div class="hero__center" id="hero-center">
     {hasLogotype ? (
       <img src={artist.logotype!} alt={`${artist.name} logo`} class="hero__logotype" width="400" height="120" />
     ) : (
       <h1 class="hero__title">{artist.name}</h1>
     )}
-    
-    <a href="#top-tracks" class="hero__music-link">MUSIC</a>
-
     <NavLinks class="hero__nav" linkColor={hero.navAndSocialColor} />
   </div>
 
+  <!-- Bottom row: social icons (scrolls with page) -->
   <div class="hero__bottom">
     <SocialIcons size={20} iconColor={hero.navAndSocialColor} />
   </div>
@@ -75,7 +75,7 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
   .hero {
     position: relative;
     /* 100vh is often taller than the visible area on mobile (URL bar), hiding bottom content.
-        svh/dvh match the actual viewport better. */
+       svh/dvh match the actual viewport better. */
     height: 100svh;
     display: flex;
     flex-direction: column;
@@ -120,31 +120,6 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
     visibility: hidden;
     pointer-events: none;
     will-change: opacity;
-  }
-
-  /* 🔥 Seamless Matching Text Style */
-  .hero__music-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0em 0.6em;
-    font-family: var(--font-heading);
-    font-size: clamp(0.55rem, 2.1vw + 0.35rem, 0.8rem);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: clamp(0.1em, 0.5vw + 0.1em, 0.2em);
-    color: var(--nav-link-color, var(--color-primary));
-    opacity: 0.85;
-    text-decoration: none;
-    transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
-    margin-top: 0.5rem;
-    margin-bottom: -0.5rem;
-  }
-
-  .hero__music-link:hover {
-    opacity: 1;
-    color: var(--color-accent, #ffffff);
-    transform: scale(1.05);
   }
 
   /* Inset nav from viewport edges on narrow screens when many links wrap */
