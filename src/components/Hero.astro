@@ -9,7 +9,6 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
 ---
 
 <section class="hero" id="home">
-  <!-- Background layers (fixed) — image and animation can coexist -->
   {hasImage && (
     <div class="hero__bg hero__bg--image" style={`background-image: url('${hero.backgroundImage}')`} aria-hidden="true" />
   )}
@@ -19,7 +18,6 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
     </div>
   )}
 
-  <!-- Fixed center content: logotype + nav -->
   <div class="hero__center" id="hero-center">
     {hasLogotype ? (
       <img src={artist.logotype!} alt={`${artist.name} logo`} class="hero__logotype" width="400" height="120" />
@@ -29,7 +27,6 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
     <NavLinks class="hero__nav" linkColor={hero.navAndSocialColor} />
   </div>
 
-  <!-- Bottom row: social icons (scrolls with page) -->
   <div class="hero__bottom">
     <SocialIcons size={20} iconColor={hero.navAndSocialColor} />
   </div>
@@ -75,7 +72,7 @@ const hasLogotype = artist.logotype != null && artist.logotype.trim() !== "";
   .hero {
     position: relative;
     /* 100vh is often taller than the visible area on mobile (URL bar), hiding bottom content.
-       svh/dvh match the actual viewport better. */
+        svh/dvh match the actual viewport better. */
     height: 100svh;
     display: flex;
     flex-direction: column;
