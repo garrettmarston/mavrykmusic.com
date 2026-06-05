@@ -181,13 +181,13 @@ export const hero: HeroConfig = {
 /** [OPTIONAL] Latest music release CTA */
 export const latestRelease: LatestReleaseConfig = {
   enabled: true,
-  tagline: "OUT NOW",
+  tagline: "OUT 6/19 on SIZELAND Records",
   releaseType: "Single",
-  title: "Speak Up",
-  image: "/images/Cover Art FINAL.jpeg",
-  imageAlt: "Speak Up",
+  title: "Messed Up (Feat. Jaime Deraz)",
+  image: "/images/Album Cover Art SIZELAND.png",
+  imageAlt: "Messed Up",
   streamingLinks: [
-    { label: "Listen Now", url: "https://open.spotify.com/track/2yGAIumtCIbs6iwtoF9Tm2?si=376c758f7e2349fd" },
+    { label: "Pre-Save Now", url: "https://hypeddit.com/mavryk/messedup" },
   ],
 
   backgroundColorOverride: null,
