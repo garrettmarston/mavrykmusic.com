@@ -181,9 +181,9 @@ export const hero: HeroConfig = {
 /** [OPTIONAL] Latest music release CTA */
 export const latestRelease: LatestReleaseConfig = {
   enabled: true,
-  tagline: "RELEASING 6/19",
+  tagline: "OUT 6/19",
   releaseType: "Single",
-  title: "Messed Up",
+  title: "",
   image: "/images/Album Cover Art SIZELAND.png",
   imageAlt: "Messed Up",
   streamingLinks: [
