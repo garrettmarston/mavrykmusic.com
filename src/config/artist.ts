@@ -182,8 +182,8 @@ export const hero: HeroConfig = {
 export const latestRelease: LatestReleaseConfig = {
   enabled: true,
   tagline: "NEW MUSIC 6/19",
-  releaseType: "Single",
-  title: "MESSED UP",
+  releaseType: "",
+  title: "",
   image: "/images/Album Cover Art SIZELAND.png",
   imageAlt: "Messed Up",
   streamingLinks: [
