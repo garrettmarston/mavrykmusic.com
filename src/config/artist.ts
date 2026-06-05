@@ -181,9 +181,9 @@ export const hero: HeroConfig = {
 /** [OPTIONAL] Latest music release CTA */
 export const latestRelease: LatestReleaseConfig = {
   enabled: true,
-  tagline: "OUT 6/19 on SIZELAND Records",
+  tagline: "RELEASING 6/19",
   releaseType: "Single",
-  title: "Messed Up (Feat. Jaime Deraz)",
+  title: "Messed Up",
   image: "/images/Album Cover Art SIZELAND.png",
   imageAlt: "Messed Up",
   streamingLinks: [
