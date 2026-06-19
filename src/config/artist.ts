@@ -241,7 +241,7 @@ export const about: AboutConfig = {
 export const contact: ContactConfig = {
   heading: "Contact",
   entries: [
-    { label: " ", email: "mgmt@MAVRYKmusic.com" },
+    { label: "Email", email: "mgmt@MAVRYKmusic.com" },
   ],
 
   backgroundColorOverride: null,
