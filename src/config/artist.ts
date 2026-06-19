@@ -187,7 +187,7 @@ export const latestRelease: LatestReleaseConfig = {
   image: "/images/Album Cover Art SIZELAND.png",
   imageAlt: "Messed Up",
   streamingLinks: [
-    { label: "Listen Now", url: "https://open.spotify.com/track/40hohBelNmsgAZyY1NACBy?si=fa72dc83e1f542db" },
+    { label: "Listen Now!", url: "https://open.spotify.com/track/40hohBelNmsgAZyY1NACBy?si=fa72dc83e1f542db" },
   ],
 
   backgroundColorOverride: null,
