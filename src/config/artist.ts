@@ -182,7 +182,7 @@ export const hero: HeroConfig = {
 export const latestRelease: LatestReleaseConfig = {
   enabled: true,
   tagline: "OUT NOW",
-  releaseType: "",
+  releaseType: "NEW SINGLE",
   title: "",
   image: "/images/Album Cover Art SIZELAND.png",
   imageAlt: "Messed Up",
