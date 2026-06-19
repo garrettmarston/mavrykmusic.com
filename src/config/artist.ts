@@ -183,7 +183,7 @@ export const latestRelease: LatestReleaseConfig = {
   enabled: true,
   tagline: "OUT NOW!",
   releaseType: "NEW SINGLE",
-  title: "",
+  title: "Messed Up",
   image: "/images/Album Cover Art SIZELAND.png",
   imageAlt: "Messed Up",
   streamingLinks: [
