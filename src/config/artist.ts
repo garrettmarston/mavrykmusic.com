@@ -181,13 +181,13 @@ export const hero: HeroConfig = {
 /** [OPTIONAL] Latest music release CTA */
 export const latestRelease: LatestReleaseConfig = {
   enabled: true,
-  tagline: "NEW MUSIC OUT 6/19!",
+  tagline: "NEW MUSIC OUT NOW",
   releaseType: "",
   title: "",
   image: "/images/Album Cover Art SIZELAND.png",
   imageAlt: "Messed Up",
   streamingLinks: [
-    { label: "Pre-Save Now", url: "https://hypeddit.com/mavryk/messedup" },
+    { label: "Listen Now", url: "https://open.spotify.com/track/40hohBelNmsgAZyY1NACBy?si=fa72dc83e1f542db" },
   ],
 
   backgroundColorOverride: null,
