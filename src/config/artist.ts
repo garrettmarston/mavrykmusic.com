@@ -181,7 +181,7 @@ export const hero: HeroConfig = {
 /** [OPTIONAL] Latest music release CTA */
 export const latestRelease: LatestReleaseConfig = {
   enabled: true,
-  tagline: "NEW MUSIC OUT NOW",
+  tagline: "OUT NOW",
   releaseType: "",
   title: "",
   image: "/images/Album Cover Art SIZELAND.png",
