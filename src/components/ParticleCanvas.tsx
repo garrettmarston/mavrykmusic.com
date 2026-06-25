@@ -45,10 +45,10 @@ export default function ParticleCanvas({ color = "#6c63ff" }: Props) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) null;
 
     const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (!ctx) null;
 
     let animationId: number;
     let particles: Particle[] = [];
