@@ -48,7 +48,7 @@ export default function ParticleCanvas({ color = "#6c63ff" }: Props) {
     if (!canvas) null;
 
     const ctx = canvas.getContext("2d");
-    if (!ctx) null;
+    if (!ctx) return;
 
     let animationId: number;
     let particles: Particle[] = [];
