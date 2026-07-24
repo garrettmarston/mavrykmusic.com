@@ -11,7 +11,7 @@ interface Particle {
 
 // ── Tunable constants ──────────────────────────────────────────────
 const CONFIG = {
-  particleDensity: 7,               // Higher = more particles
+  particleDensity: 0,               // Higher = more particles
   particleDensityFalloff: 0.75,     // 1 = linear, < 1 = less dense as screen size increases
   connectionDistance: 150,
   cursorConnectionMultiplier: 1.5,
