@@ -183,11 +183,11 @@ export const latestRelease: LatestReleaseConfig = {
   enabled: true,
   tagline: "OUT NOW!",
   releaseType: "NEW SINGLE",
-  title: "Messed Up",
-  image: "/images/Album Cover Art SIZELAND.png",
-  imageAlt: "Messed Up",
+  title: "Drown",
+  image: "/images/Drown Cover Art.jpg",
+  imageAlt: "Drown",
   streamingLinks: [
-    { label: "Listen Now!", url: "https://open.spotify.com/track/40hohBelNmsgAZyY1NACBy?si=128121bbd9fa4ba0" },
+    { label: "Listen Now!", url: "https://open.spotify.com/track/6BLkNVUrc3M4wjdVdUHFzG?si=8d8e3d5a7f5244b4" },
   ],
 };
 
