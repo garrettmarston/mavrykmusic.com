@@ -229,7 +229,7 @@ export const newsletter: NewsletterConfig = {
 /** [REQUIRED] About section */
 export const about: AboutConfig = {
   heading: "About",
-  bio: "<p>MAVRYK is an American producer specializing in a high-octane hybrid of euphoric Melodic Bass and nostalgic Rocktronic. Influenced by artists like Illenium, William Black, Roy Knox, and Sadbois, MAVRYK’s sound aims to blend intimate and emotional verses that build into heavy and euphoric drops.</p>",
+  bio: "<p>MAVRYK is an American producer carving out a signature lane in the bass music scene with a hybrid sound rooted in nostalgic rocktronic and euphoric melodic bass. He has drawn immediate stamps of approval from some of the scene’s biggest names: taking first place in an official Culture Code remix competition with co-producer TELLENIAL, receiving airplay on Adventure Club’s Superheroes Anonymous Radio, and earning high praise from melodic bass legend MitiS during a live stream. Backed by an expanding catalog on Sizeland Records, Spiration Records, and Stardust Records, MAVRYK is built for fans of Illenium, Dabin, Said The Sky, and William Black.</p>",
   image: "/images/Avatar2.PNG",
   imageAlt: "MAVRYK",
 
