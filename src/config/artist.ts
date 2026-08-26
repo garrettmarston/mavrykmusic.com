@@ -183,7 +183,7 @@ export const latestRelease: LatestReleaseConfig = {
   enabled: true,
   tagline: "OUT NOW!",
   releaseType: "NEW SINGLE",
-  title: "Drown",
+  title: "",
   image: "/images/Drown Cover Art.jpg",
   imageAlt: "Drown",
   streamingLinks: [
