@@ -184,10 +184,10 @@ export const latestRelease: LatestReleaseConfig = {
   tagline: "OUT NOW!",
   releaseType: "NEW SINGLE",
   title: "",
-  image: "/images/Drown Cover Art.jpg",
-  imageAlt: "Drown",
+  image: "/images/All In Cover Art.jpg",
+  imageAlt: "All In",
   streamingLinks: [
-    { label: "Listen Now!", url: "https://open.spotify.com/track/6BLkNVUrc3M4wjdVdUHFzG?si=8d8e3d5a7f5244b4" },
+    { label: "Listen Now!", url: "https://open.spotify.com/track/5n7BaBhRjwe7wYGBj6qxUm?si=5bf5a5412a774d70" },
   ],
 };
 
