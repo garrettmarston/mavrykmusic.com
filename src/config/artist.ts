@@ -151,7 +151,7 @@ export const socials: SocialsConfig = {
   soundcloud: "https://soundcloud.com/mavrykofficial",
   bandcamp: null,
   tidal: null,
-  linktree: "https://linktr.ee/MAVRYKmusic",
+  linktree: null,
 };
 
 /** 
@@ -184,10 +184,10 @@ export const latestRelease: LatestReleaseConfig = {
   tagline: "OUT NOW!",
   releaseType: "NEW SINGLE",
   title: "",
-  image: "/images/All In Cover Art.jpg",
-  imageAlt: "All In",
+  image: "/images/I Was Wrong Cover Art.png",
+  imageAlt: "I Was Wrong"
   streamingLinks: [
-    { label: "Listen Now!", url: "https://open.spotify.com/track/5n7BaBhRjwe7wYGBj6qxUm?si=5bf5a5412a774d70" },
+    { label: "Listen Now!", url: "https://open.spotify.com/track/3gnzHVhkWFNPpD180SThV9?si=28f2dfad29c24b58" },
   ],
 };
 
