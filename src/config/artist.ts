@@ -184,7 +184,7 @@ export const latestRelease: LatestReleaseConfig = {
   tagline: "OUT NOW!",
   releaseType: "NEW SINGLE",
   title: "",
-  image: "/images/I Was Wrong Cover Art.png",
+  image: "/images/I Was Wrong Cover Art.jpg",
   imageAlt: "I Was Wrong"
   streamingLinks: [
     { label: "Listen Now!", url: "https://open.spotify.com/track/3gnzHVhkWFNPpD180SThV9?si=28f2dfad29c24b58" },
