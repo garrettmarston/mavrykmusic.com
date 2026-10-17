@@ -129,7 +129,7 @@ export const artist: ArtistConfig = {
   favicon: "/favicon-96x96.png",
   seo: {
     title: "MAVRYK",
-    description: "Official website for DJ, Artist, & Producer MAVRYK. Listen to the latest tracks now on all Streaming Platforms, keep updated via Socials, contact, and more.",
+    description: "Official website for Artist & Producer MAVRYK. Listen to the latest tracks now on all Streaming Platforms, keep updated via Socials, contact, and more.",
     ogImage: "/images/ogImage.png",
     keywords: ["MAVRYK", "Music", "Artist", "Electronic Music", "EDM", "Melodic Bass", "Rocktronic"],
     siteUrl: "https://mavrykmusic.com",
